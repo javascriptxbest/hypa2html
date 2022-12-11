@@ -1,0 +1,19 @@
+This is some text, this would be rendered as a regular paragraph.
+
+@ http://example.com
+? This is a label for the above URL, it would be rendered like an interactive text link.
+
+@ /this-text-will-be-visible-because-it-is-not-labeled
+
+# a comment, this shouldn't be rendered, it's purely for making notes
+
+###
+a
+multline
+comment
+
+this of course also won't be rendered, and is also for notes.
+###
+
+
+um... that's it.

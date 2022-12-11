@@ -10,25 +10,28 @@ body {
 	background: #0d0d0d;
 	color: #ccc;
 	font-family: sans;
+	height: 100%;
 }
 
 main {
-	padding: 0 2rem;
+	padding: 1rem 2rem 3rem;
 	max-width: var(--width);
 	margin: 0 auto;
 	background: #000;
 	box-sizing: border-box;
+	min-height: 100%;
+	height: min-content;
 }
 
 @media(max-width: 480px) {
 	main {
-		padding: 0 1rem;
+		padding: 0 1rem 3rem;
 	}
 }
 
 p {
 	margin: 0;
-	padding: 1rem 0;
+	padding: 0.5rem 0;
 	line-height: 1.4;
 	overflow-wrap: anywhere;
 }

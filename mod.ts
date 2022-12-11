@@ -53,31 +53,36 @@ async function main(args: Args) {
   for (let i = 0; i < lines.length; i += 1) {
     const line = lines[i].trim();
     const firstChar = line.substring(0, 1);
+
     if (isComment) { // waiting for ###
       if (line.substring(0, 3) === "###") { // end comment
         isComment = false;
       }
-    } else if (isLink) { // waiting for ? or finish creating link
+      continue; // no need to process further
+    }
+
+    if (isLink) { // waiting for ? or finish creating link
+      isLink = false; // link is completed
       if (firstChar === "?") { // set label
         const lastBlock = blocks[blocks.length - 1];
         if (lastBlock.type === "link") {
-          lastBlock.data.label = line.substring(2);
+          lastBlock.data.label = line.substring(1).trim();
         } else {
           throw Error(`Somehow adding label for missing link at line: ${i}`);
         }
+        continue; // no need to process further
       }
-      isLink = false; // link is completed
-    } else {
-      if (firstChar === "@") { // is a link
-        isLink = true;
-        blocks.push({ type: "link", data: { url: line.substring(2) } });
-      } else if (firstChar === "#") { // ignore content, and check if single or multiline comment
-        if (line.substring(0, 3) === "###") { // is multiline comment
-          isComment = true;
-        }
-      } else if (line) { // everything else is text, as long as it isn't an empty string
-        blocks.push({ type: "text", data: line });
+    }
+
+    if (firstChar === "@") { // is a link
+      isLink = true;
+      blocks.push({ type: "link", data: { url: line.substring(1).trim() } });
+    } else if (firstChar === "#") { // ignore content, and check if single or multiline comment
+      if (line.substring(0, 3) === "###") { // is multiline comment
+        isComment = true;
       }
+    } else if (line) { // everything else is text, as long as it isn't an empty string
+      blocks.push({ type: "text", data: line });
     }
   }
 

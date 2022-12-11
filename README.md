@@ -28,7 +28,7 @@ Here's the spec:
 * empty string lines (incl. whitespace-only lines) aren't rendered and delimit blocks
 * anything else is rendered as a text block
 
-### Example
+### [Example](https://raw.githubusercontent.com/javascriptxbest/hypa2html/main/example.hypa)
 
 ```
 This is some text, this would be rendered as a regular paragraph.
