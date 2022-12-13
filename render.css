@@ -1,5 +1,5 @@
 :root {
-	--width: calc(50ch + 4rem);
+	--width: calc(50ch * 0.9 + 2rem);
 }
 
 html,
@@ -7,26 +7,18 @@ body {
 	font-size: 16px;
 	margin: 0;
 	padding: 0;
-	background: #0d0d0d;
-	color: #ccc;
+	background: #1A1A1D;
+	color: #97A8AE;
 	font-family: sans;
 	height: 100%;
 }
 
 main {
-	padding: 1rem 2rem 3rem;
+	padding: 0 1rem 1rem;
 	max-width: var(--width);
-	margin: 0 auto;
-	background: #000;
 	box-sizing: border-box;
 	min-height: 100%;
 	height: min-content;
-}
-
-@media(max-width: 480px) {
-	main {
-		padding: 0 1rem 3rem;
-	}
 }
 
 p {
@@ -34,6 +26,7 @@ p {
 	padding: 0.5rem 0;
 	line-height: 1.4;
 	overflow-wrap: anywhere;
+	font-size: 0.9rem;
 }
 
 div {
@@ -42,8 +35,10 @@ div {
 }
 
 a {
-	color: #5facd9;
+	color: #87B5C5;
 	text-decoration: none;
 	line-height: 1.4;
 	overflow-wrap: anywhere;
+	font-size: 0.85rem;
+	letter-spacing: 1px;
 }

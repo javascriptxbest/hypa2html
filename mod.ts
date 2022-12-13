@@ -1,5 +1,6 @@
 import { getStdin } from "https://deno.land/x/get_stdin@v1.1.0/mod.ts";
 import { Arguments } from "https://deno.land/x/allo_arguments@v6.0.4/mod.ts";
+import pretty from "npm:pretty@2.0.0";
 
 interface URLType {
   type: "link";
@@ -138,7 +139,7 @@ async function buildHTML(header: string, blockData: BlockInfo[]) {
 	</html>
 	`;
 
-  return doc;
+  return pretty(doc);
 }
 
 async function renderCSS() {
